@@ -7,7 +7,54 @@
 
         while ($city = mysqli_fetch_assoc($cities))
         {
-            echo "<$tag class='$class' value='$city[id]'>$city[name]</$tag>";
+            echo "<$tag class='$class' value='$city[name]'>$city[name]</$tag>";
         }
+    }
+
+    function bookSeat($connection, $name, $age, $dateTime, $from, $to)
+    {
+        if (isValidRoute($from, $to))
+        {
+            $ticketNumber = generateTicket($connection);
+
+            $query  = "INSERT INTO tickets";
+            $query .= "(ticketNumber, name, age, date, from_destination, to_destination)";
+            $query .= "VALUES('$ticketNumber', '$name', $age, '$dateTime', '$from', '$to')";
+
+            $result = mysqli_query($connection, $query);
+            if (!$result)
+            {
+                echo mysqli_error($connection);
+            }
+        }
+    }
+
+    // generate a unique ticket number
+    function generateTicket($connection)
+    {
+        $ticketNo = rand(100,999)."-".rand(1000, 9999);
+        $query = "SELECT * FROM tickets";
+        $tickets = mysqli_query($connection, $query);
+
+        while ($ticket = mysqli_fetch_assoc($tickets))
+        {
+            if ($ticketNo == $ticket['ticketNumber'])
+            {
+                generateTicket($connection);
+                return;
+            }
+        }
+        return $ticketNo;
+
+    }
+
+    // Validate Route
+    function isValidRoute($from, $to)
+    {
+        if ($from == $to)
+        {
+            return false;
+        }
+        return true;
     }
 ?>
