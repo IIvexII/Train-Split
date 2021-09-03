@@ -8,13 +8,23 @@
             <form action="" method="post">
                 <div class="container mt-5">
                     <div class="row">
-                        <div class="col ms-1">
-                            <input type="text" class="form-control" placeholder="From">
+                        <div class="col-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>From</option>
+                                <?php
+                                    showAllCities($connection, "option",);
+                                ?>
+                            </select>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="To">
+                        <div class="col-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>To</option>
+                                <?php
+                                    showAllCities($connection, "option",);
+                                ?>
+                            </select>
                         </div>
-                        <div class="col">
+                        <div class="col-4">
                             <input type="submit" value="Book Now" class="btn btn-danger">
                         </div>
                     </div>

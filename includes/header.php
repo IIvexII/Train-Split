@@ -1,4 +1,6 @@
 <?php
+  // Including files
+  include "includes/functions.php";
   // Including secret credentials from cred.php
   // REMAINDER: This should not be be included in the repository
   include "includes/cred.php";
