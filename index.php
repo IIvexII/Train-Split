@@ -1,6 +1,8 @@
+<!-- Header -->
 <?php include "includes/header.php"; ?>
 
-    <?php include "includes/carousel.php"; ?>
+<!-- Carousel -->
+<?php include "includes/carousel.php"; ?>
     
-
+<!-- Footer -->
 <?php include "includes/footer.php"; ?>

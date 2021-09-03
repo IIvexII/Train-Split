@@ -1,3 +1,9 @@
+<?php
+  // Including secret credentials from cred.php
+  // REMAINDER: This should not be be included in the repository
+  include "includes/cred.php";
+  $connection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE_NAME);
+?>
 <!doctype html>
 <html lang="en">
   <head>
