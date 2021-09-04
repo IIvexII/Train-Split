@@ -11,15 +11,15 @@
         }
     }
 
-    function bookSeat($connection, $name, $age, $dateTime, $from, $to)
+    function bookSeat($connection,$trainNumber, $name, $age, $date, $time, $from, $to)
     {
         if (isValidRoute($from, $to))
         {
             $ticketNumber = generateTicket($connection);
 
             $query  = "INSERT INTO tickets";
-            $query .= "(ticketNumber, name, age, date, from_destination, to_destination)";
-            $query .= "VALUES('$ticketNumber', '$name', $age, '$dateTime', '$from', '$to')";
+            $query .= "(ticketNumber, trainNumber ,name, age, date, time, from_destination, to_destination)";
+            $query .= "VALUES('$ticketNumber', '$trainNumber', '$name', $age, '$date', '$time', '$from', '$to')";
 
             $result = mysqli_query($connection, $query);
             if (!$result)

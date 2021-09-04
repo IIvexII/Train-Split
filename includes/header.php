@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  
   // Including files
   include "includes/functions.php";
   // Including secret credentials from cred.php

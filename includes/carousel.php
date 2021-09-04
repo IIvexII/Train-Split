@@ -1,19 +1,3 @@
-<?php
-    // Activates when user clicks  on book button.
-    // Also checks if user selected cities or not
-    // by comparing default values "To" & "From.
-    if(isset($_POST['book']) && $_POST['To']!="To" && $_POST['from']!="From")
-    {
-        $name = $_POST['name'];
-        $age = $_POST['age'];
-        $dateTime = $_POST['dateTime'];
-        $to = $_POST['to'];
-        $from = $_POST['from'];
-
-        // Book a seat for customer
-        bookSeat($connection,$name,$age, $dateTime, $from, $to);
-    }
-?>
 <div class="container">
     <div class="row">
         <div class="col-6">
@@ -22,7 +6,7 @@
                 <span class="text-danger d-block">Now!</span>
             </h1>
             <!-- Take ticket order from customer -->
-            <form action="" method="post">
+            <form action="?page=selectTime" method="post">
                 <div class="container mt-5">
                     <!-- row 1 -->
                     <div class="row">
@@ -52,7 +36,7 @@
                             <input name="age" type="text" class="form-control" placeholder="Age" require>
                         </div>
                         <div class="col-5">
-                            <input name="dateTime" type="date" class="form-control" require>
+                            <input name="date" type="date" class="form-control" require>
                         </div>
                     </div>
                     <!-- row 3 -->
@@ -60,7 +44,7 @@
                         <div class="col-4"></div>
                         <div class="col-4">
                             <div class="col-3">
-                                <input name="book" type="submit" value="Book Now" class="btn btn-lg btn-danger">
+                                <input type="submit" name="book" value="Book Now" class="btn btn-lg btn-danger">
                             </div>
                         </div>
                         <div class="col-4"></div>
@@ -71,3 +55,4 @@
         <div class="col-5"><img id="head-train" width="400" src="images/train.png" alt=""></div>
     </div>
 </div>
+<!-- id, train number, seats, to, from, stay at -->
