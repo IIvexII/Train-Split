@@ -48,11 +48,11 @@
                         <div class="col-4">
                             <input name="name" type="text" class="form-control" placeholder="Name" require>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <input name="age" type="text" class="form-control" placeholder="Age" require>
                         </div>
-                        <div class="col-4">
-                            <input name="dateTime" type="datetime-local" class="form-control" require>
+                        <div class="col-5">
+                            <input name="dateTime" type="date" class="form-control" require>
                         </div>
                     </div>
                     <!-- row 3 -->
