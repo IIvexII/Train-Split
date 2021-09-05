@@ -22,9 +22,11 @@
             $query .= "VALUES('$ticketNumber', '$trainNumber', '$name', $age, '$date', '$time', '$from', '$to')";
 
             $result = mysqli_query($connection, $query);
-            if (!$result)
+
+            if ($result)
             {
-                echo mysqli_error($connection);
+                $_SESSION["ticketNumber"] = $ticketNumber;
+                header("Location: ?page=ticket");
             }
         }
     }
@@ -56,5 +58,15 @@
             return false;
         }
         return true;
+    }
+
+    // Show alert / message.
+    function showAlert($type, $message)
+    {
+        echo "
+        <div class='alert alert-${type} alert-dismissible fade show' role='alert'>
+            $message
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>";
     }
 ?>

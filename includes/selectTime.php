@@ -14,16 +14,16 @@
         $arr = explode(',',$_POST['selectSlot']); 
         $trainNumber = $arr[0];
         $time = $arr[1];
-
+        $_SESSION['time'] = $time;
+        $_SESSION['trainNumber'] = $trainNumber;
+        
         // Book a seat for customer
         bookSeat($connection, $trainNumber, $name, $age, $date, $time, $from, $to);
-
-        session_destroy();
     }
     // Activates when user clicks  on book button.
     // Also checks if user selected cities or not
     // by comparing default values "To" & "From.
-    if(isset($_POST['book']) && $_POST['To']!="To" && $_POST['from']!="From")
+    else if(isset($_POST['book']) && $_POST['To']!="To" && $_POST['from']!="From")
     {
         $_SESSION['name'] = $_POST['name'];
         $_SESSION['age'] = $_POST['age'];
@@ -37,7 +37,7 @@
         header("Location: .");
     }
 ?>
-<form action="" method="post">
+<form action="?page=selectTime" method="post">
     <div class="container mt-5">
         <div class="row pt-5">
             <div class="col-2"></div>

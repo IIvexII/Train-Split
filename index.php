@@ -12,6 +12,10 @@
             case "selectTime": 
                 include "includes/selectTime.php";
                 break;
+            
+            case "ticket": 
+                include "includes/ticket.php";
+                break;
 
             default:    // Default Page
                 include "includes/carousel.php";
