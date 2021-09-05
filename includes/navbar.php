@@ -27,10 +27,17 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li> -->
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="TN eg. XXX-XXXX" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit">Search</button>
+      <form action="" method="post" class="d-flex">
+        <input class="form-control me-2" name='ticketNumber' type="search" placeholder="TN eg. XXX-XXXX" aria-label="Search">
+        <button class="btn btn-outline-dark" name='search' type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
+
+<?php
+  if (isset($_POST['ticketNumber']))
+  {
+    search($connection, $_POST['ticketNumber']);
+  }
+?>

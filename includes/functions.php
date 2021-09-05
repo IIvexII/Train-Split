@@ -69,4 +69,30 @@
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
         </div>";
     }
+
+    // Search by ticket Number
+    function search($connection, $ticketNumber)
+    {
+        $query = "SELECT * FROM tickets";
+        $tickets = mysqli_query($connection, $query);
+        if ($tickets)
+        {
+            while($ticket = mysqli_fetch_assoc($tickets))
+            {
+                if ($ticket['ticketNumber'] == $ticketNumber)
+                {
+                    $_SESSION['name'] = $ticket['name'];
+                    $_SESSION['source'] = $ticket['from_destination'];
+                    $_SESSION['destination'] = $ticket['to_destination'];
+                    $_SESSION['ticketNumber'] = $ticket['ticketNumber'];
+                    $_SESSION['trainNumber'] = $ticket['trainNumber'];
+                    $_SESSION['date'] = $ticket['date'];
+                    $_SESSION['time'] = $ticket['time'];
+                    
+                    header("Location: ?page=ticket");
+                }
+                
+            }
+        }
+    }
 ?>
